@@ -5,16 +5,41 @@ def jsonParse(def json) {
 }
 pipeline {
   agent { label 'principal' }
-  environment {
-    appName = "variable" 
-  }
-  stages {
-    stage("paso 1"){     
-      steps {
-          script {			
-           sh "echo 'hola mundo'"
+   parameters {
+        string(name: 'name_project', defaultValue: 'demo', description: 'nombre del proyecto')
+        string(name: 'version', defaultValue: '1.0', description: 'version del proyecto')
+    }
+    environment {
+        appName = "${name_project}:${version}"
+    }
+    stages {
+    stage("pre-start"){     
+        steps {
+            script {			
+                sh "echo 'Iniciando despliegue proyecto ${appName})'"
+            }
         }
-      }
+    }
+    stage("stop"){     
+        steps {
+            script {			
+                sh "docker-compose down"
+            }
+        }
+    }
+    stage("build"){     
+        steps {
+            script {			
+                sh "docker-compose build"
+            }
+        }
+    }
+    stage("start"){     
+        steps {
+            script {			
+                sh "docker-compose up -d"
+            }
+        }
     }
   }
   post {
