@@ -20,6 +20,14 @@ pipeline {
             }
         }
     }
+    stage("demo"){     
+        steps {
+            script {			
+                sh "sh build.sh"
+            }
+        }
+    }
+    
     stage("stop"){     
         steps {
             script {			
