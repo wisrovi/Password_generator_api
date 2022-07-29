@@ -1,3 +1,4 @@
+//https://www.youtube.com/watch?v=o39V8R2ESvo&list=PLdOotbFwzDIiU4Hs8ySZr-phOeGMBY_3D&index=4
 import groovy.json.JsonSlurperClassic
 
 def jsonParse(def json) {
