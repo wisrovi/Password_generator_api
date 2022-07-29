@@ -2,6 +2,6 @@
   "mongo": "mongo",
   "user": "root",
   "password": "example",
-  "database": "banco",
-  "coleccion_mongo": "demo"
+  "database": "fenix",
+  "coleccion_mongo": "licencias"
 }
