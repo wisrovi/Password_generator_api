@@ -1,2 +1,2 @@
-docker build -t wisrovi/password_generator:V1.0 .
+docker build -t password_generator:V1.0 .
 docker-compose up -d
