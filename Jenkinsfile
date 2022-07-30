@@ -20,16 +20,8 @@ pipeline {
                 sh "echo 'Iniciando despliegue proyecto ${appName})'"
             }
         }
-    }
-    stage("demo"){     
-        steps {
-            script {			
-                sh "sh build.sh"
-            }
-        }
-    }
-    
-    stage("stop"){     
+    }    
+    stage("stop_old"){     
         steps {
             script {			
                 sh "docker-compose down"
